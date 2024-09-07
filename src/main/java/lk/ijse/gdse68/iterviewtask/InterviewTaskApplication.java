@@ -6,20 +6,29 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.IOException;
+
 @SpringBootApplication
 public class InterviewTaskApplication implements CommandLineRunner {
     @Autowired
     UserService userService;
+
     public static void main(String[] args) {
         SpringApplication.run(InterviewTaskApplication.class,args);
         System.out.println("hii");
     }
+
     @Override
     public void run(String... args) throws Exception {
         String user = userService.createUser();
         System.out.println(user);
-        String user789 = userService.getUser("user789");
-        System.out.println(user789);
+
+        String getUserDetails = userService.getUser("user78090");
+        System.out.println(getUserDetails);
+
+        String userList = userService.listUsers();
+        System.out.println(userList);
+
         String json = "{\n" +
                 "    \"uid\": \"user78090\",\n" +
                 "    \"email\": \"asachi@gmail.com\",\n" +
@@ -42,6 +51,8 @@ public class InterviewTaskApplication implements CommandLineRunner {
                 "}\n";
         String updateUser = userService.updateUser("user78090",json);
         System.out.println(updateUser);
+        String delete = userService.deleteUser("user78090");
+		System.out.println(delete);
     }
 
 }
