@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
-@RequiredArgsConstructor
+
 @Service
+@RequiredArgsConstructor
 public class UserService {
     private static final String API_URL = "https://541680cdf54b4d298b0d660da574ad94.weavy.io/api/users";
     private static final String API_KEY = "wys_d3xOs1h1jcYfEy0PwfAoGCuTXGck6G0UxP7X";
